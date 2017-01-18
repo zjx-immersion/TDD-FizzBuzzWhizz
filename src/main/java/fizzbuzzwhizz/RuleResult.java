@@ -11,11 +11,6 @@ public class RuleResult {
 
     }
 
-    public void append(String result) {
-        this.resultBuild.append(result);
-    }
-
-
     public void append(Boolean ismatch, String result) {
         if (ismatch) {
             this.resultBuild.append(result);
