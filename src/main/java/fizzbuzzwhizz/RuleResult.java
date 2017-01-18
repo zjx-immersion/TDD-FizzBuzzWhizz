@@ -11,10 +11,11 @@ public class RuleResult {
 
     }
 
-    public void append(Boolean ismatch, String result) {
+    public boolean append(Boolean ismatch, String result) {
         if (ismatch) {
             this.resultBuild.append(result);
         }
+        return ismatch;
     }
 
     @Override

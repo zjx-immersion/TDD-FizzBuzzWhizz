@@ -1,5 +1,10 @@
 package fizzbuzzwhizz;
 
+import static fizzbuzzwhizz.Action.nop;
+import static fizzbuzzwhizz.Action.to;
+import static fizzbuzzwhizz.Matcher.always;
+import static fizzbuzzwhizz.Matcher.contains;
+import static fizzbuzzwhizz.Matcher.is;
 import static fizzbuzzwhizz.Rules.*;
 
 /**
@@ -17,20 +22,20 @@ public class CallCenter {
 
     public Rule initailRules() {
 
-        Rule r1 = timeRule(3, "Fizz");
-        Rule r2 = timeRule(5, "Buzz");
-        Rule r3 = timeRule(7, "Whizz");
+        Rule r1 = unit(is(3), to("Fizz"));
+        Rule r2 = unit(is(5), to("Buzz"));
+        Rule r3 = unit(is(7), to("Whizz"));
 
-        Rule all1 = andRule(r1, r2, r3);
-        Rule all3 = andRule(r1, r3);
-        Rule all2 = andRule(r1, r2);
-        Rule all4 = andRule(r2, r3);
+        Rule all1 = and(r1, r2, r3);
+        Rule all3 = and(r1, r3);
+        Rule all2 = and(r1, r2);
+        Rule all4 = and(r2, r3);
 
-        Rule rc = containRule(3, "Fizz");
+        Rule rc = unit(contains(3), to("Fizz"));
 
-        Rule rd = defaultRule();
+        Rule rd = unit(always(true), nop());
 
-        Rule anyRule = anyRule(rc, all1, all2, all3, all4, r1, r2, r3, rd);
+        Rule anyRule = any(rc, all1, all2, all3, all4, r1, r2, r3, rd);
 
         return anyRule;
 
