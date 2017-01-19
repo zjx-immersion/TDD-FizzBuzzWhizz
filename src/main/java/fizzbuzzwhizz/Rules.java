@@ -1,8 +1,5 @@
 package fizzbuzzwhizz;
 
-import java.util.Arrays;
-
-import static java.util.Arrays.asList;
 import static java.util.Arrays.stream;
 
 /**
@@ -22,7 +19,6 @@ public class Rules {
         return (n, r) -> {
             RuleResult result = new RuleResult();
             return r.append(match(rules, n, result), result.toString());
-
         };
     }
 
