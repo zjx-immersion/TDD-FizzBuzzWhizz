@@ -52,7 +52,7 @@ public class FizzBuzzWhizzTest {
         int number = 2;
 
         //Then
-        assertThat(valueOf(callCenter.call(2)), is("2"));
+        assertThat(valueOf(callCenter.call(number)), is("2"));
 
     }
 
